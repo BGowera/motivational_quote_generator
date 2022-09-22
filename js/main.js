@@ -1,20 +1,26 @@
-
 const form = document.getElementById('form');
 const btn = document.getElementById('get-btn');
+const quoteDiv = document.querySelector('.quote-div');
 form.appendChild(btn);
-form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        const req = await axios.get("https://type.fit/api/quotes");
-        console.log(req.data)
-const randCall = Math.floor(Math.random() * 1642) ;
-        const quote = `${req.data[randCall].text} - ${req.data[randCall].author}`;
-        const list = document.createElement('ul');
-        const listItem = document.createElement('li');
 
-        listItem.textContent = quote;
-        list.appendChild(listItem);
-        form.appendChild(list);
-        btn.textContent = "Generate A New Quote";
+form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        newQuote();
 })
+
+
+//   1642 quotes total
+
+
+const newQuote = async () => {
+        const result = await axios.get("https://type.fit/api/quotes");
+        const randomQuote = Math.floor(Math.random() * 1642);
+        const quote = result.data[randomQuote].text;
+        const attribution = result.data[randomQuote].author;
+        const quotePara = document.querySelector('.quote');
+        quotePara.textContent = quote;
+        const attributionPara = document.querySelector('.attribution');
+        attributionPara.textContent = `\t -${attribution}`;
+}
 
 
