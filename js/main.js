@@ -1,10 +1,15 @@
 const container = document.querySelector("#container");
+const welcomeSection = document.getElementById('welcome-section');
+const quoteSection = document.getElementById("quote-section");
 const form = document.getElementById("form");
 const btn = document.getElementById("get-btn");
 let quoteDiv;
 let newBtn;
 form.appendChild(btn);
-container.appendChild(form);
+quoteSection.appendChild(form);
+container.appendChild(welcomeSection);
+container.appendChild(quoteSection);
+
 
 const newQuote = async () => {
 	const result = await axios.get("https://type.fit/api/quotes");
@@ -20,13 +25,13 @@ const newQuote = async () => {
 	quotePara.classList.add("quote-para");
 	attributionPara.classList.add("attribution-para");
 	quoteDiv.appendChild(quotePara);
-        quoteDiv.appendChild(attributionPara);
-        container.appendChild(quoteDiv);
+    quoteDiv.appendChild(attributionPara);
+    quoteSection.appendChild(quoteDiv);
     
 };
 
 const clear = () => {
-	container.removeChild(quoteDiv);
+	quoteSection.removeChild(quoteDiv);
 };
 
 
@@ -39,7 +44,8 @@ form.addEventListener("submit", (e) => {
 btn.addEventListener('click', async () => {
        await newQuote();
         form.removeChild(btn);
-        newBtn = document.createElement('button');
+
+	newBtn = document.createElement('button');
         newBtn.innerText = "Get Another Quote";
         form.appendChild(newBtn);
         newBtn.addEventListener('click', () => {
