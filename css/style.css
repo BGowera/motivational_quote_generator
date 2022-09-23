@@ -98,13 +98,9 @@ button{
         transition: all 1s;
         margin-top: 10rem;
         margin-bottom: 12rem;
+        border: 1px solid var(--color-complement-1);
 }
 
-button:hover{
-        border-radius: 10px;
-        color:#210439;
-        transform: scale(1.1);
-}
 
 .quote-div{
    display: block;
@@ -120,6 +116,7 @@ button:hover{
    color: white;
    font-size: 1.8rem;
    border-radius: 20px;
+   
 
 }
 
@@ -128,3 +125,30 @@ button:hover{
         font-style: italic;
         font-size: 1.2rem;
 }
+
+
+@media (min-width:600px) {
+        button{
+            padding:2em 3rem;
+        font-size: 1.8rem;
+        border-radius: 20px;    
+        }
+
+        .quote-para{
+                font-size: 2.5rem;
+                font-weight: 600;
+        }
+
+        .attribution-para{
+                font-size: 1.8rem;
+                font-weight: 400;
+        }
+}
+
+
+
+        /* button:hover{
+        border-radius: 10px;
+        color:#210439;
+        transform: scale(1.1);
+} */
