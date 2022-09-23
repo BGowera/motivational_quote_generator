@@ -17,11 +17,12 @@ const newQuote = async () => {
 	quotePara.textContent = quote;
 	attributionPara.textContent = `- ${attribution}`;
 	quoteDiv.classList.add("quote-div");
-	quotePara.classList.add(".quote-para");
-	attributionPara.classList.add(".attribution-para");
+	quotePara.classList.add("quote-para");
+	attributionPara.classList.add("attribution-para");
 	quoteDiv.appendChild(quotePara);
-	quoteDiv.appendChild(attributionPara);
-	container.appendChild(quoteDiv);
+        quoteDiv.appendChild(attributionPara);
+        container.appendChild(quoteDiv);
+    
 };
 
 const clear = () => {
@@ -41,7 +42,6 @@ btn.addEventListener('click', async () => {
         newBtn = document.createElement('button');
         newBtn.innerText = "Get Another Quote";
         form.appendChild(newBtn);
-
         newBtn.addEventListener('click', () => {
                 clear();
                 newQuote();
