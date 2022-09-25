@@ -103,7 +103,7 @@ animation:bg-fill 1s ease-in 2.5s forwards;
 		width:0;
 	}
 	100%{
-		width: 20%;
+		width: 50%;
 		background-color: var(--lighter-orange);
 		color:var(--lightest-grey);
 		text-transform: uppercase;
@@ -134,15 +134,22 @@ button {
 	margin:0 auto;
 	background-color:var(--lightest-grey);
 	color:#c2660a;
+	padding: 3px;
 	transition: background-color 1000ms;
 	transition: border-radius 2500ms;
+	font-size: clamp(1.5rem, 1.3293rem + 0.6098vw, 2.5rem);
 }
 
-button:hover{
+/* button:hover{
 	cursor: pointer;
 	background-color:var(--darkest-orange);
 	color:var(--lightest-grey) ;
 	border-radius: 100px;
+} */
+
+.clicked{
+	background-color:var(--darkest-orange);
+	color:var(--lightest-grey) ;
 }
 
 .quote-div {

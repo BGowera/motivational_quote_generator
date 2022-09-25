@@ -50,7 +50,8 @@ btn.addEventListener('click', async () => {
         form.appendChild(newBtn);
         newBtn.addEventListener('click', () => {
                 clear();
-                newQuote();
+			newQuote();
+			newBtn.classList.add('clicked');
         })
 })
 
