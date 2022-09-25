@@ -25,7 +25,7 @@
 --darkest-grey:#3f3f3f;
 --light-grey:#535353;
 --lighter-grey:#9a9a9a;
---lightest-grey:#e8e8e8;
+--lightest-grey:#fffbfb;
 
 
 }
@@ -38,7 +38,7 @@ html {
 
 body {
 	min-height: 100vh;
-	background: url(/img/noise.png);
+	/* background: url(/img/noise.png); */
 	background-color: var(--main-blue);
 	font-family: "Roboto", sans-serif;
 }
@@ -58,12 +58,13 @@ section {
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
+	line-height: 2;
 }
 
 /* min height 0vh improves clamp compatibility with safari */
 
 h1,
-h2 {
+h2,button,.quote-div{
 	min-height: 0vh;
 }
 
@@ -76,24 +77,96 @@ h1 {
 
 h2 {
 	font-size: clamp(1.4rem, 0.7522rem + 2.3134vw, 4.5rem);
+
+	
+}
+
+.type-span{
+	overflow: hidden;
+	white-space: nowrap;
+	margin: 0 auto;
+	animation: sliding 3.5s  ;
 }
 
 
+.today-span{
+	overflow: hidden;
+	white-space: nowrap;
+	margin: 0 auto;
+	width: 0;
+animation:bg-fill 1s ease-in 2.5s forwards;
+
+}
+
+@keyframes bg-fill {
+	0%{
+		width:0;
+	}
+	100%{
+		width: 20%;
+		background-color: var(--lighter-orange);
+		color:var(--lightest-grey);
+		text-transform: uppercase;
+	}
+	
+}
+
+
+
+@keyframes sliding {
+	0%{
+		width:0;
+	}
+	100%{
+		width:100%;
+		
+	}
+};
 
 
 #form {
-
+	display: flex;
+	justify-content: center;
 }
 
 button {
-	
+	display: block;
+	margin:0 auto;
+	background-color:var(--lightest-grey);
+	color:#c2660a;
+	transition: background-color 1000ms;
+	transition: border-radius 2500ms;
+}
+
+button:hover{
+	cursor: pointer;
+	background-color:var(--darkest-orange);
+	color:var(--lightest-grey) ;
+	border-radius: 100px;
 }
 
 .quote-div {
-	
+	animation: 2s anim-lineUp ease-out;	
 }
 
 .attribution-para {
 	
 }
 
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
