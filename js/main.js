@@ -37,7 +37,7 @@ function domManip() {
 	} else {
 		attributionPara.textContent = `- ${attribution}`;
 	}
-	
+
 	quoteDiv.classList.add("quote-div");
 	quoteDiv.style.backgroundImage = `url(/img/${bgRandomize()}.jpg)`;
 	quotePara.classList.add("quote-para");
@@ -61,21 +61,16 @@ form.addEventListener("submit", (e) => {
 	e.preventDefault();
 });
 
-try {
-	btn.addEventListener("click", async () => {
-		await newQuote();
-		form.removeChild(btn);
+btn.addEventListener("click", async () => {
+	await newQuote();
+	form.removeChild(btn);
 
-		newBtn = document.createElement("button");
-		newBtn.innerText = "Get Another Quote";
-		form.appendChild(newBtn);
-		newBtn.addEventListener("click", () => {
-			clear();
-			newQuote();
-			newBtn.classList.add("clicked");
-		});
+	newBtn = document.createElement("button");
+	newBtn.innerText = "Get Another Quote";
+	form.appendChild(newBtn);
+	newBtn.addEventListener("click", () => {
+		clear();
+		newQuote();
+		newBtn.classList.add("clicked");
 	});
-} catch (e) {
-	console.log("oops");
-	container.removeChild(form);
-}
+});
