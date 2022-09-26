@@ -48,9 +48,6 @@ body {
 	margin: 0 auto;
 }
 
-section {
-	
-}
 
 #welcome-section {
 	height: 50vh;
@@ -99,32 +96,6 @@ animation:bg-fill 1s ease-in 2.5s forwards;
 
 }
 
-@keyframes bg-fill {
-	0%{
-		width:0;
-	}
-	100%{
-		width: 50%;
-		background-color: var(--lighter-orange);
-		color:var(--lightest-grey);
-		text-transform: uppercase;
-	}
-	
-}
-
-
-
-@keyframes sliding {
-	0%{
-		width:0;
-	}
-	100%{
-		width:100%;
-		
-	}
-};
-
-
 #form {
 	display: flex;
 	justify-content: center;
@@ -135,22 +106,20 @@ button {
 	margin:0 auto;
 	background-color:var(--lightest-grey);
 	color:#c2660a;
+	border: 1px solid var(--darkest-blue);
 	padding: 3px;
 	transition: background-color 1000ms;
 	transition: border-radius 2500ms;
 	font-size: clamp(1.5rem, 1.3293rem + 0.6098vw, 2.5rem);
 }
 
-/* button:hover{
-	cursor: pointer;
-	background-color:var(--darkest-orange);
-	color:var(--lightest-grey) ;
-	border-radius: 100px;
-} */
+
 
 .clicked{
 	background-color:var(--darkest-orange);
 	color:var(--lightest-grey) ;
+	box-shadow: none;
+
 }
 
 .quote-div {
@@ -160,9 +129,9 @@ button {
 	width: 80%;
 	margin: auto;
 	height: auto;
-	border: 10px solid red;
+	background:linear-gradient(0deg, rgba(15, 15, 15, 0.3), rgba(5, 5, 5, 0.3)), url(/img/1.jpg);
 	margin-top:30%;
-	/* animation: 2s anim-lineUp ease-out;	 */
+	animation: 2s anim-lineUp ease-out;	
 }
 
 .quote-para{
@@ -177,6 +146,31 @@ button {
 	text-align: right;
 	font-style: italic;
 font-size: clamp(1.5rem, 1.4146rem + 0.3049vw, 2rem);
+}
+
+/* animations */
+
+@keyframes sliding {
+	0%{
+		width:0;
+	}
+	100%{
+		width:100%;
+		
+	}
+}
+
+@keyframes bg-fill {
+	0%{
+		width:0;
+	}
+	100%{
+		width: 50%;
+		background-color: var(--lighter-orange);
+		color:var(--lightest-grey);
+		text-transform: uppercase;
+	}
+	
 }
 
 @keyframes anim-lineUp {
@@ -195,4 +189,28 @@ font-size: clamp(1.5rem, 1.4146rem + 0.3049vw, 2rem);
     opacity: 1;
     transform: translateY(0%);
   }
+}
+
+
+/* media queries */
+
+@media (min-width:900px) {
+
+	#form {
+	margin-top:10%;
+}
+
+	button:hover{
+	cursor: pointer;
+	background-color:var(--darkest-orange);
+	color:var(--lightest-grey) ;
+	border-radius: 50px;
+}
+
+.quote-div {
+	margin-top:5%;
+	margin-bottom:3rem;
+	animation: 2s anim-lineUp ease-out;	
+}
+
 }
