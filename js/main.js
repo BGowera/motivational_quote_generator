@@ -39,7 +39,7 @@ function domManip() {
 	}
 
 	quoteDiv.classList.add("quote-div");
-	quoteDiv.style.backgroundImage = `url(../img/${bgRandomize()}.jpg)`;
+	quoteDiv.style.backgroundImage = `url(./img/${bgRandomize()}.jpg)`;
 	quotePara.classList.add("quote-para");
 	attributionPara.classList.add("attribution-para");
 	quoteDiv.appendChild(quotePara);
