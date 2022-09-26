@@ -123,13 +123,16 @@ button {
 }
 
 .quote-div {
-	background-position: center center;
-	background-size: contain;
 	padding: 8px;
 	width: 80%;
+	border-radius: 15px;
 	margin: auto;
 	height: auto;
-	background:linear-gradient(0deg, rgba(15, 15, 15, 0.3), rgba(5, 5, 5, 0.3)), url(/img/1.jpg);
+	background: rgba(36, 31, 31, 0.5);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-blend-mode: multiply;
 	margin-top:30%;
 	animation: 2s anim-lineUp ease-out;	
 }
@@ -209,8 +212,9 @@ font-size: clamp(1.5rem, 1.4146rem + 0.3049vw, 2rem);
 
 .quote-div {
 	margin-top:5%;
-	margin-bottom:3rem;
-	animation: 2s anim-lineUp ease-out;	
+	margin-bottom:4rem;
+	width: 50%;
+	height: auto;
 }
 
 }
