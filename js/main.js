@@ -3,6 +3,7 @@ const welcomeSection = document.getElementById("welcome-section");
 const quoteSection = document.getElementById("quote-section");
 const form = document.getElementById("form");
 const btn = document.getElementById("get-btn");
+const waitMessage = document.getElementById('wait-message');
 let quoteDiv;
 let quotePara;
 let attributionPara;
@@ -10,6 +11,7 @@ let newBtn;
 let result;
 form.appendChild(btn);
 quoteSection.appendChild(form);
+quoteSection.appendChild(waitMessage);
 container.appendChild(welcomeSection);
 container.appendChild(quoteSection);
 
@@ -62,9 +64,8 @@ form.addEventListener("submit", (e) => {
 });
 
 btn.addEventListener("click", async () => {
-	await newQuote();
 	form.removeChild(btn);
-
+	await newQuote();
 	newBtn = document.createElement("button");
 	newBtn.innerText = "Get Another Quote";
 	form.appendChild(newBtn);
