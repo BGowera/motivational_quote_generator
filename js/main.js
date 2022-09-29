@@ -49,7 +49,6 @@ function domManip() {
 
 const newQuote = async () => {
 	result = await axios.get("https://type.fit/api/quotes");
-	console.log(result.data);
 	domManip();
 };
 
