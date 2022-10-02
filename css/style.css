@@ -72,6 +72,10 @@ h1 {
 }
 
 
+.error{
+	margin-top: 50vh;
+}
+
 h2 {
 	font-size: clamp(1.4rem, 0.7522rem + 2.3134vw, 4.5rem);
 

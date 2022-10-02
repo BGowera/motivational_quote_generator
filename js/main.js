@@ -19,10 +19,11 @@ for (let i = 1; i <= 12; i++) {
 	images.push(`${i}.jpg`);
 }
 function bgRandomize() {
-	const randPic = Math.floor(Math.random() * images.length);
+	const randPic = Math.floor(Math.random() * images.length) + 1;
 	return randPic;
 }
 
+console.log(bgRandomize())
 function domManip() {
 	const randomQuote = Math.floor(Math.random() * 1642);
 	const quote = result.data[randomQuote].text;
@@ -47,9 +48,24 @@ function domManip() {
 	quoteSection.appendChild(quoteDiv);
 }
 
+const newError = () => {
+			
+	container.removeChild(welcomeSection);
+	container.removeChild(quoteSection);
+	const errMess = document.createElement('h1');
+	errMess.classList.add('error');
+	errMess.textContent = 'Unexpected Error :( please refresh or check your connection';
+	container.appendChild(errMess);
+}
+
 const newQuote = async () => {
-	result = await axios.get("https://type.fit/api/quotes");
-	domManip();
+	try {
+		result = await axios.get("https://type.fit/api/quotes");
+		domManip();
+	} catch (e) {
+		console.log("ERROR", e);
+		newError();
+	}
 };
 
 const clear = () => {
