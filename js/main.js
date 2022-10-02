@@ -23,7 +23,7 @@ function bgRandomize() {
 	return randPic;
 }
 
-console.log(bgRandomize())
+
 function domManip() {
 	const randomQuote = Math.floor(Math.random() * 1642);
 	const quote = result.data[randomQuote].text;
