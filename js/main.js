@@ -23,7 +23,6 @@ function bgRandomize() {
 	return randPic;
 }
 
-
 function domManip() {
 	const randomQuote = Math.floor(Math.random() * 1642);
 	const quote = result.data[randomQuote].text;
@@ -33,11 +32,9 @@ function domManip() {
 	attributionPara = document.createElement("p");
 	quotePara.textContent = quote;
 
-	if (result.data[randomQuote].author == null) {
-		attributionPara.textContent = "- Anonymous";
-	} else {
-		attributionPara.textContent = `- ${attribution}`;
-	}
+	result.data[randomQuote].author == null
+		? (attributionPara.textContent = "- Anonymous")
+		: (attributionPara.textContent = `- ${attribution}`);
 
 	quoteDiv.classList.add("quote-div");
 	quoteDiv.style.backgroundImage = `url(./img/${bgRandomize()}.jpg)`;
@@ -49,14 +46,14 @@ function domManip() {
 }
 
 const newError = () => {
-			
 	container.removeChild(welcomeSection);
 	container.removeChild(quoteSection);
-	const errMess = document.createElement('h1');
-	errMess.classList.add('error');
-	errMess.textContent = 'Unexpected Error :( please refresh or check your connection';
+	const errMess = document.createElement("h1");
+	errMess.classList.add("error");
+	errMess.textContent =
+		"Unexpected Error :( please refresh or check your connection";
 	container.appendChild(errMess);
-}
+};
 
 const newQuote = async () => {
 	try {
